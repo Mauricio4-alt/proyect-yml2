@@ -1,6 +1,7 @@
 package com.mycompany.proyect_yml.domain;
 
 import com.mongodb.lang.NonNull;
+import com.mycompany.proyect_yml.domain.enumarations.Estado;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -31,9 +32,9 @@ public class TipoDocumento implements Serializable {
 
     @NonNull
     @Field("estado")
-    private String estado;
+    private Estado estado;
 
-    public TipoDocumento(String id, @NonNull String sigla, @NonNull String nombreDocumento, @NonNull String estado) {
+    public TipoDocumento(String id, @NonNull String sigla, @NonNull String nombreDocumento, @NonNull Estado estado) {
         this.id = id;
         this.sigla = sigla;
         this.nombreDocumento = nombreDocumento;
@@ -75,11 +76,11 @@ public class TipoDocumento implements Serializable {
     }
 
     @NonNull
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(@NonNull String estado) {
+    public void setEstado(@NonNull Estado estado) {
         this.estado = estado;
     }
 }
