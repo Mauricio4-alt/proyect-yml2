@@ -5,11 +5,16 @@ import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.Serial;
 import java.io.Serializable;
 @Document(collection = "clientes")
 public class Cliente implements Serializable {
+
+    @Serial
+    private static long serialVersionUID;
 
     @Id
     private String id;
@@ -39,7 +44,9 @@ public class Cliente implements Serializable {
     @Field("segundo_apellido")
     private String segundoApellido;
 
-    //@DBRef
+
+
+    @DocumentReference
     @Field("tipo_documento")
     private TipoDocumento tipoDocumento;
 
@@ -103,6 +110,14 @@ public class Cliente implements Serializable {
 
     public void setSegundoApellido(@NonNull String segundoApellido) {
         this.segundoApellido = segundoApellido;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public static void setSerialVersionUID(long serialVersionUID) {
+        Cliente.serialVersionUID = serialVersionUID;
     }
 
     public TipoDocumento getTipoDocumento() {
