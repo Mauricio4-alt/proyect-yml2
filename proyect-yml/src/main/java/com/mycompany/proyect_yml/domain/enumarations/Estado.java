@@ -1,8 +1,8 @@
 package com.mycompany.proyect_yml.domain.enumarations;
 
 public enum Estado {
-    Activo("Activo"),
-    Inactivo("Inactivo");
+    Activo("ACTIVO"),
+    Inactivo("INACTIVO");
 
     private final String estado;
 

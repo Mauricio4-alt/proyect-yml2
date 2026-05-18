@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c6a91a74-dfb2-4c60-a61f-063e9aa7d694" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyect-yml/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/proyect-yml/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/domain/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/domain/enumarations/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/domain/enumarations/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/repository/TipoDocumentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyect-yml/src/main/java/com/mycompany/proyect_yml/repository/TipoDocumentoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyect-yml/src/test/java/com/mycompany/proyect_yml/repository/ClienteRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyect-yml/src/test/java/com/mycompany/proyect_yml/repository/ClienteRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,11 +38,16 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Administrador/proyect-yml2",
+    "last_opened_file_path": "C:/Users/mauri/Documents/proyect-yml2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -65,6 +66,7 @@
       <updated>1778783048917</updated>
       <workItem from="1778783052341" duration="229000" />
       <workItem from="1778783317601" duration="253000" />
+      <workItem from="1778870586908" duration="999000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package com.mycompany.proyect_yml.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mongodb.lang.NonNull;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
@@ -46,9 +47,15 @@ public class Cliente implements Serializable {
 
 
 
+
     @DocumentReference
     @Field("tipo_documento")
+    //@JsonIgnoreProperties(value={"clientes"},allowSetters = true)
     private TipoDocumento tipoDocumento;
+
+    @DocumentReference
+    @Field("cuenta")
+    private Cuenta cuenta;
 
     public Cliente(String id, @NonNull String numeroDocumento, @NonNull String primerNombre, @NonNull String segundoNombre, @NonNull String primerApellido, @NonNull String segundoApellido) {
         this.id = id;

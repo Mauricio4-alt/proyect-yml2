@@ -4,11 +4,14 @@ import com.mongodb.lang.NonNull;
 import com.mycompany.proyect_yml.domain.enumarations.Estado;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Document(collection= "tipo_documento")
@@ -33,6 +36,11 @@ public class TipoDocumento implements Serializable {
     @NonNull
     @Field("estado")
     private Estado estado;
+
+    @DBRef()
+    @Field("clientes")
+    private Set <Cliente> clientes = new HashSet<>();
+
 
     public TipoDocumento(String id, @NonNull String sigla, @NonNull String nombreDocumento, @NonNull Estado estado) {
         this.id = id;
