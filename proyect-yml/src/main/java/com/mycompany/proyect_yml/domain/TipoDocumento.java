@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -91,4 +92,16 @@ public class TipoDocumento implements Serializable {
     public void setEstado(@NonNull Estado estado) {
         this.estado = estado;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof TipoDocumento that)) return false;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

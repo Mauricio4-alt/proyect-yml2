@@ -11,6 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Document(collection = "clientes")
 public class Cliente implements Serializable {
 
@@ -133,5 +135,16 @@ public class Cliente implements Serializable {
 
     public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Cliente cliente)) return false;
+        return Objects.equals(id, cliente.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
