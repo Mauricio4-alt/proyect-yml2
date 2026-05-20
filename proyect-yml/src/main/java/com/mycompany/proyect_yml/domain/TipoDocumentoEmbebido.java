@@ -1,6 +1,14 @@
 package com.mycompany.proyect_yml.domain;
 
-public class TipoDocumentoEmbebido {
+
+import java.io.Serial;
+import java.io.Serializable;
+
+public class TipoDocumentoEmbebido implements Serializable {
+    @Serial
+    private static long serialVersionUID;
+
+
     private String sigla;
     private String nombreDocumento;
 

@@ -3,6 +3,7 @@ package com.mycompany.proyect_yml.repository;
 import com.mycompany.proyect_yml.domain.Cliente;
 import com.mycompany.proyect_yml.domain.Cuenta;
 import com.mycompany.proyect_yml.domain.TipoDocumento;
+import com.mycompany.proyect_yml.domain.TipoDocumentoEmbebido;
 import com.mycompany.proyect_yml.domain.enumarations.Estado;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +30,19 @@ class CuentaRepositoryTest {
 
     @Test
     void insert(){
-        mongoTemplate.dropCollection(Cliente.class);
+        clienteRepository.deleteAll();
+        cuentaRepository.deleteAll();
         tipoDocumentoRepository.deleteAll();
         TipoDocumento tipoDocumentoCedula = tipoDocumentoRepository.insert(new TipoDocumento(null,"CC","Cedula de ciudadania", Estado.Activo));
 
         Cliente cliente = new Cliente (null,"123456789","John","Doe","Smith","Robinson");
-        Cliente cliente2 = new Cliente (null,"99999","John","Doe","Smith","Robinson");
+        Cliente cliente2 = new Cliente (null,"123456789","John","Doe","Smith","Robinson");
+        //Cliente cliente2 = new Cliente (null,"99999","John","Doe","Smith","Robinson");
+        TipoDocumentoEmbebido tipoDocumentoEmbebido= new TipoDocumentoEmbebido(tipoDocumentoCedula.getSigla(),tipoDocumentoCedula.getNombreDocumento());
 
 
-
-        cliente.setTipoDocumento(tipoDocumentoCedula);
-        cliente2.setTipoDocumento(tipoDocumentoCedula);
+        cliente.setTipoDocumentoEmbebido(tipoDocumentoEmbebido);
+        cliente2.setTipoDocumentoEmbebido(tipoDocumentoEmbebido);
 
         Cliente clienteGuardado= clienteRepository.insert(cliente);
         Cliente clienteGuardado2= clienteRepository.insert(cliente2);

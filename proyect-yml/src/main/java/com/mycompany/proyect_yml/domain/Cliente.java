@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mongodb.lang.NonNull;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -11,7 +13,16 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serial;
 import java.io.Serializable;
+
+
+
 @Document(collection = "clientes")
+@CompoundIndex(
+        name = "idx_unique_cliente",
+        // USAMOS NOTACIÓN DE PUNTO: campoObjetoEmbebido.campoInterno
+        def = "{'numero_documento': 1, 'tipo_documento': 1}",
+        unique = true
+)
 public class Cliente implements Serializable {
 
     @Serial
@@ -48,10 +59,10 @@ public class Cliente implements Serializable {
 
 
 
-    @DocumentReference
+
     @Field("tipo_documento")
     //@JsonIgnoreProperties(value={"clientes"},allowSetters = true)
-    private TipoDocumento tipoDocumento;
+    private TipoDocumentoEmbebido tipoDocumentoEmbebido;
 
     @DocumentReference
     @Field("cuenta")
@@ -127,11 +138,19 @@ public class Cliente implements Serializable {
         Cliente.serialVersionUID = serialVersionUID;
     }
 
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
+    public TipoDocumentoEmbebido getTipoDocumentoEmbebido() {
+        return tipoDocumentoEmbebido;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipoDocumentoEmbebido(TipoDocumentoEmbebido tipoDocumentoEmbebido) {
+        this.tipoDocumentoEmbebido = tipoDocumentoEmbebido;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
 }

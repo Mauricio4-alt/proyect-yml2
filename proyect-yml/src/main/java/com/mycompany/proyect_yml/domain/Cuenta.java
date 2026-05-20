@@ -28,7 +28,7 @@ public class Cuenta implements Serializable {
     private Estado estado;
 
     @DocumentReference
-    @Field("cliente")
+    @Field("clientes")
     private Cliente cliente;
 
     public Cuenta(String id, @NonNull String nickname, @NonNull Estado estado) {
