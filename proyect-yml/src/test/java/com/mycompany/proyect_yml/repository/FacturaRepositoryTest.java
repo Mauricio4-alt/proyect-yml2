@@ -55,10 +55,7 @@ class FacturaRepositoryTest {
 
         Cliente clienteGuardado = clienteRepository.insert(cliente);
 
-        clienteGuardado.getFacturaSet().add(factura1);
-        clienteGuardado.getFacturaSet().add(factura2);
-        clienteGuardado.getFacturaSet().add(factura3);
-        clienteGuardado.getFacturaSet().add(factura4);
+
 
         clienteRepository.save(clienteGuardado);
 
