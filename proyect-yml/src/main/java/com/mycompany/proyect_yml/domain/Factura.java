@@ -9,7 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.stereotype.Indexed;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @Document(collection = "factura")
 @CompoundIndex(name="unique_numero_factura",def="{'numeroFactura':1,'anio':1}",unique = true)
 public class Factura {
@@ -26,6 +29,8 @@ public class Factura {
     @Field("cliente")
     @JsonIgnoreProperties(value = {"tipo_documento","cuenta","factura"},allowSetters = true)
     private Cliente cliente;
+
+    private Set<ProductoEmbebido> productos = new HashSet<>();
 
     public Factura(String id, long numeroFactura, int anio, Date fecha, Double total, double iva, double subtotal) {
         this.id = id;
@@ -91,6 +96,22 @@ public class Factura {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Set<ProductoEmbebido> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Set<ProductoEmbebido> productos) {
+        this.productos = productos;
     }
 
     @Override
