@@ -5,7 +5,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Document
 public class Producto implements Serializable {
@@ -23,6 +25,8 @@ public class Producto implements Serializable {
     private int cantidadStock;
     private String urlImagen;
     private String descipcion;
+
+
 
     public Producto(String id, String serial, String nombreProducto, double precio, int cantidadStock, String urlImagen, String descipcion) {
         this.id = id;
