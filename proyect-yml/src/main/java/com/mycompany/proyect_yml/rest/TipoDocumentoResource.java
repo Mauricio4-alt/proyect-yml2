@@ -34,11 +34,11 @@ public class TipoDocumentoResource {
         List <TipoDocumento> tipoDocumentos =tipoDocumentoRepository.findAll() ;
         ResponseEntity body = ResponseEntity.ok().body(tipoDocumentos);
         return body;
-    }@GetMapping("document-type/{id}")
+    }@GetMapping("tipo-documentos/{id}")
     public String getTIpoDocumentoByID(@PathVariable("id") Long id){
         return "Document type By id "+ id;
 
-    }@DeleteMapping("tipo-documento/{id}")
+    }@DeleteMapping("tipo-documentos/{id}")
     public String deleteTipoDocumento(@PathVariable("id") Long id){
 
         return "Delete document type by id "+id;
